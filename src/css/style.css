@@ -1,0 +1,362 @@
+@font-face {
+    font-family: playlist;
+    src: url(../playlist.otf);
+}
+
+.topnav {
+    overflow: hidden;
+    position: fixed;
+    z-index: 10000;
+    width: 100%;
+}
+
+.topnav a {
+    float: right;
+    display: block;
+    color: darkblue;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    line-height: 4rem;
+}
+
+.topnav a:hover {
+    color: black;
+}
+
+.logo {
+    font-family: playlist;
+    color: white !important;
+    font-size: 3em !important;
+}
+
+.topnav .icon {
+    display: none;
+}
+
+.topnav a:first-child {
+    float: left;
+}
+
+@media screen and (max-width: 600px) {
+
+    .topnav a:not(:first-child) {
+        display: none;
+    }
+    .topnav a.icon {
+        float: right;
+        display: block;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .topnav.responsive {
+        position: relative;
+    }
+    .topnav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+}
+
+.taglineWrapper {
+    position: absolute;
+    top: 40%;
+    left: 10%;
+    transform: translateY(-50%);
+    color: white;
+    max-width: 600px;
+    min-width: 400px;
+
+}
+
+
+
+.taglineWrapper h1 {
+    font-family: playlist;
+    font-size: 4em;
+    text-align: center;
+}
+
+.taglineWrapper p {
+    font-size: 1em;
+    text-align: center;
+}
+
+.taglineWrapperRegister {
+    color: white;
+}
+
+.taglineWrapperRegister h1 {
+    font-family: playlist;
+    font-size: 4em;
+    text-align: center;
+}
+
+.taglineWrapperRegister p {
+    font-size: 1em;
+    text-align: center;
+}
+
+.navbar-brand {
+    font-family: playlist;
+    font-size: 4em;
+    color: white !important;
+    height: auto;
+    line-height: 1.2em;
+}
+
+.navigationBar {
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    background: none;
+    margin: 0;
+    border: 0;
+    color: blue;
+}
+
+
+@media (max-width: 767.98px) {
+    .navigationBar {
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+
+}
+
+.homePage {
+    height: 90vh;
+    min-height: 768px;
+    position: relative;
+    background-image: url(../images/banner%20.png), url(../images/slide1.jpg);
+    background-repeat: no-repeat, no-repeat;
+    background-position: center bottom, center bottom;
+    background-size: contain, cover;
+    background-attachment: scroll, fixed;
+}
+
+.homePageRegister {
+    height: auto;
+    min-height: 768px;
+    position: relative;
+    background-image: url(../images/slide1.jpg);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+    background-attachment: fixed; 
+    overflow:hidden;
+    
+}
+
+
+.tabContentArea {
+    padding: 2em;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.nav-tabs {
+    border: none;
+    overflow: hidden;
+}
+
+.nav-tabs > li > a {
+    border-radius: 0;
+    border: none;
+    color: white;
+}
+
+.nav-tabs > li > a:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    text-decoration: none;
+    border: none;
+}
+
+.loginFormWrapper {
+
+    position: absolute;
+    top: 40%;
+    right: 10%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    width: 400px;
+}
+
+.registerFormWrapper {
+    transform: translate(-50%, -50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    width: 600px;
+}
+
+.loginRegisterForm h2 {
+    font-size: 16px;
+    color: white;
+}
+
+.loginRegisterForm h2 a {
+    font-size: 16px;
+    text-decoration: none;
+    color: orange;
+}
+
+.loginRegisterForm h2 a:hover {
+    color: dodgerblue;
+}
+
+
+.loginRegisterForm input {
+    border: none;
+    padding: .5em 1em;
+    border-radius: 6px;
+    width: 100%;
+}
+
+.loginRegisterForm select {
+    border: none;
+    padding: .5em 1em;
+    border-radius: 6px;
+    width: 100%;
+}
+
+.loginRegisterForm select option {
+    border: none;
+    padding: .5em 1em;
+    border-radius: 6px;
+    width: 100%;
+}
+
+.loginRegisterForm select:focus {
+    outline: none;
+}
+
+.loginRegisterForm select {
+    border: none;
+    padding: .5em 1em;
+    border-radius: 6px;
+    width: 100%;
+}
+
+.loginRegisterForm input:focus {
+    outline: none;
+}
+
+.newsLetter {
+    margin-top: 100px;
+}
+
+.newsLetter h1 {
+    font-size: 2em;
+}
+
+
+.newsLetter input {
+    margin-top: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    padding: .5em 1em;
+    border-radius: 6px;
+    width: 100%;
+}
+
+
+@media screen and (max-width: 1500px) {
+
+    .taglineWrapper {
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        color: white;
+    }
+
+    .loginFormWrapper {
+        width: 400px;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: rgba(0, 0, 0, 0.6);
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    }
+    .registerFormWrapper {
+        width: 600px;
+        background-color: rgba(0, 0, 0, 0.6);
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    }
+
+}
+
+.wrapperRegisterForm {
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.offerNews {
+    margin-top: 100px;
+}
+
+.imgcontainer {
+    position: relative;
+}
+
+.imgcontainer img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    height: 0;
+    transition: .5s ease;
+}
+
+.imgcontainer:hover .overlay {
+    height: 10%;
+}
+
+.text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.offerNews p {
+    margin-top: 15px;
+}
+
+.tourWrapper {
+    margin-top: 30px;
+}
+
+.itemsWrapper {
+    margin-top: 50px;
+}
+
+.inputRow {
+    margin-top: 30px;
+}

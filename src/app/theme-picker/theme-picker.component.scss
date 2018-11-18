@@ -1,0 +1,21 @@
+.theme {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f4f4f4;
+    padding: 24px;
+    text-align: right;
+    font-family: 'Open Sans', serif;
+    font-weight: 300;
+  }
+  .button1{
+      color: #f4f4f4;
+      margin: 0 14px;
+      background: linear-gradient(217deg,#df2424,#757c0a)
+  }
+  
+  .button2{
+    color: #f4f4f4;
+    margin: 0 14px;
+    background: linear-gradient(217deg,#6b04be,#3d1dce)
+  }

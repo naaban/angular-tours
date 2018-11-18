@@ -1,0 +1,552 @@
+<section style="height:70vh">
+
+  <body class="inventory-body " [ngStyle]="{'background-image': 'url('+this.image.url+')'}">
+    <div [ngClass]="{'dark-theme' : isDarkTheme | async}">
+      <div [ngClass]="{'red-theme' : isRedTheme | async}">
+        <div class="container">
+          <div class="row mt-3 ">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-8">
+              <mat-card>
+                <mat-card-title color="accent">
+                  Traveller Info
+                </mat-card-title>
+                <mat-card-content>
+                  <form name="form" [formGroup]="params" (submit)="onSubmit()">
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Fullname" formControlName="fullname">
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Email" type="email" formControlName="email">
+                    </mat-form-field>
+                    <mat-form-field class="example-full-width">
+                      <input matInput placeholder="Mobile" type="number" formControlName="mobile">
+                    </mat-form-field>
+                    <div formArrayName="visits">
+                      <!-- <div *ngFor="let param of params.get('visits').controls; let i=index"> -->
+                        <!-- <div [formGroupName]="i"> -->
+                          <mat-card>
+                            <mat-card-content>
+                              <mat-form-field class="example-full-width">
+                                <mat-select placeholder="Select Country" formControlName="country">
+                                  <mat-option *ngFor="let c of countries" value="{{c}}">
+                                    {{c}}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                              <div class="container">
+                                <div class="row">
+                                  <mat-form-field class="example-full-width">
+                                    <mat-select placeholder="Select City" formControlName="city">
+                                      <mat-option *ngFor="let ci of cities" value="{{ci}}">
+                                        {{ci}}
+                                      </mat-option>
+                                    </mat-select>
+                                  </mat-form-field>
+                                </div>
+                                <div class="row">
+                                  <div class="col-sm-6">
+                                    <mat-form-field>
+                                      <mat-select placeholder="No of Adults" formControlName="noOfAdults">
+                                        <mat-option *ngFor="let ad of adults" value="{{ad}}">{{ad}}</mat-option>
+                                      </mat-select>
+                                    </mat-form-field>
+                                  </div>
+                                  <div class="col-sm-6">
+                                    <mat-form-field>
+                                      <mat-select placeholder="No of Childrens" formControlName="noOfChildrens">
+                                        <mat-option *ngFor="let ch of childrens" value="{{ch}}">{{ch}}</mat-option>
+                                      </mat-select>
+                                    </mat-form-field>
+                                  </div>
+                                </div>
+                              </div>
+                            </mat-card-content>
+                          </mat-card>
+                        <!-- </div> -->
+                      <!-- </div> -->
+                    </div>
+                    <div class="container mt-2" style="text-align:end">
+                      <button mat-flat-button type="button" color="accent" (click)="addCountry()">Add Visits</button>
+                    </div>
+                    <div class="container">
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <mat-form-field>
+                            <input matInput [matDatepicker]="arr" placeholder="Choose a Arr Date" formControlName="arrDate">
+                            <mat-datepicker-toggle matSuffix [for]="arr"></mat-datepicker-toggle>
+                            <mat-datepicker #arr></mat-datepicker>
+                          </mat-form-field>
+                        </div>
+                        <div class="col-sm-6">
+                          <mat-form-field>
+                            <input matInput [matDatepicker]="dep" placeholder="Choose a Dep Date" formControlName="depDate">
+                            <mat-datepicker-toggle matSuffix [for]="dep"></mat-datepicker-toggle>
+                            <mat-datepicker #dep></mat-datepicker>
+                          </mat-form-field>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="container mt-3 centered">
+                      <button mat-flat-button color="accent">Submit</button> &nbsp;
+                      <button mat-flat-button type="reset" color="warn">Reset </button>
+                    </div>
+                  </form>
+                </mat-card-content>
+              </mat-card>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</section>
+<app-footer></app-footer>
+<!-- 
+<section>
+  <div class="mm">
+    <div class="mm-inn">
+      <div class="mm-logo">
+        <a href="#"><img src="images/logo.png" alt="">
+        </a>
+      </div>
+      <div class="mm-icon"><span><i class="fa fa-bars show-menu" aria-hidden="true"></i></span>
+      </div>
+      <div class="mm-menu">
+        <div class="mm-close"><span><i class="fa fa-times hide-menu" aria-hidden="true"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+
+  <div class="menu-section">
+    <div class="container">
+      <div class="row">
+        <div class="top-bar">
+          <ul>
+            <li><a class='dropdown-button' href='#' data-activates='dropdown1'> My Account <i class="fa fa-angle-down"></i></a></li>
+            <li><a href="about-us.html">About Us</a></li>
+            <li><a href="contact-us.html">Contact Us</a></li>
+            <li><a class='dropdown-button' href='#' data-activates='dropdown2'>Language <i class="fa fa-angle-down"></i></a></li>
+            <li><a href="#">Toll Free No: 1800 123456</a></li>
+          </ul>
+        </div>
+        <div class="all-drop-down">
+
+          <ul id='dropdown1' class='dropdown-content drop-con-man'>
+            <li><a href="dashboard.html"><img src="images/icon/15.png" alt=""> Dashboard</a></li>
+            <li><a href="profile.html"><img src="images/icon/2.png" alt=""> My Profile</a></li>
+            <li><a href="#"><img src="images/icon/16.png" alt=""> My Bookings</a></li>
+            <li><a href="#!" data-toggle="modal" data-target="#modal2"><img src="images/icon/5.png" alt=""> Register
+                Staff</a></li>
+            <li><a href="login.html"><img src="images/icon/6.png" alt=""> Log Out</a></li>
+          </ul>
+
+          <ul id='dropdown2' class='dropdown-content drop-con-man'>
+            <li><a href="#!">English</a></li>
+            <li><a href="#!">Spanish</a></li>
+            <li><a href="#!">Hindi</a></li>
+            <li><a href="#!">Russian</a></li>
+            <li><a href="#!">Portuguese</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="logo">
+          <a href="#"><img src="images/logo.png" alt="" />
+          </a>
+        </div>
+        <div class="menu-bar">
+          <ul>
+            <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+            <li><a href="customerinfo.html"><i class="fa fa-sitemap"></i> Create Package</a></li>
+            <li><a href="readymade.html"><i class="fa fa-object-group"></i> Readymade Packages</a></li>
+            <li><a href="how.html"><i class="fa fa-list-ol"></i> How it Works?</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="inn-body-section inn-booking">
+    <div class="container">
+      <div class="row">
+
+        <div class="col-md-4">
+          <div class="book-title">
+            <h2>Travellers Info -></h2>
+            <p>How it works, you explain here... Some text goes here... Some text goes here... Some text goes here...
+              Some text goes here... Some text goes here... Some text goes here... Some text goes here... Some text
+              goes here... Some text goes here... Some text goes here... Some text goes here... Some text goes here...
+            </p>
+          </div>
+        </div>
+        <div class="col-md-8">
+          <div class="book-form inn-com-form">
+            <form class="col s12" action="hotelBooking.html" name="" id="">
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="text" class="validate">
+                  <label>Full Name</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input type="text" class="validate">
+                  <label>Email</label>
+                </div>
+                <div class="input-field col s6">
+                  <input type="text" class="validate">
+                  <label>Mobile</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <select>
+                    <option value="" disabled selected>Choose Country</option>
+                    <option value="1">America</option>
+                    <option value="2">Canada</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s6">
+                  <select>
+                    <option value="" disabled selected>Choose Citiy from Country selected</option>
+                    <option value="2"> Bangalore</option>
+                    <option value="1"> Mysore</option>
+                    <option value="2"> Chennai</option>
+                    <option value="1"> Hyderabad</option>
+                    <option value="2"> New Delhi</option>
+                  </select>
+                </div>
+                <div class="input-field col s3">
+                  <select>
+                    <option value="" disabled selected>No of adults</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="1">4</option>
+                  </select>
+                </div>
+                <div class="input-field col s3">
+                  <select>
+                    <option value="" disabled selected>No of childrens</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="1">4</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s6">
+                  <input type="text" id="from" name="from">
+                  <label for="from">Arrival Date</label>
+                </div>
+                <div class="input-field col s6">
+                  <input type="text" id="to" name="to">
+                  <label for="to">Departure Date</label>
+                </div>
+              </div>
+              <div id="cityMGR_fileds"></div>
+              <div class="input-group-btn">
+                <button class="btn btn-success" type="button" onclick="cityMGR_fileds();"> <span class="glyphicon glyphicon-plus"
+                    aria-hidden="true"></span>Add City</button>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea id="textarea1" class="materialize-textarea" data-length="120"></textarea>
+                  <label>Message</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <input type="submit" value="submit" class="form-btn">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="hom-footer-section">
+    <div class="container">
+      <div class="row">
+        <div class="foot-com foot-1">
+          <ul>
+            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+            </li>
+            <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+            </li>
+            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            </li>
+          </ul>
+        </div>
+        <div class="foot-com foot-2">
+          <h5>Phone: +91 91489 76626</h5>
+        </div>
+        <div class="foot-com foot-3">
+          <a class="waves-effect waves-light" href="#">Live Chat</a>
+        </div>
+        <div class="foot-com foot-4">
+          <a href="#"><img src="images/card.png" alt="" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer clearfix">
+  <div class="sidebar-container">
+    <div class="sidebar-inner">
+      <div class="widget-area clearfix">
+        <div class="widget widget_azh_widget">
+          <div>
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-12 col-md-3 foot-logo">
+                  <img src="images/logo1.png" alt="logo">
+                  <p class="hasimg">Hotels worldwide incl. Infos, Ratings and Photos. Make your Hotel Reservation
+                    cheap.</p>
+                  <p class="hasimg">The top-rated hotel booking services.The top-rated hotel booking services.</p>
+                </div>
+                <div class="col-sm-12 col-md-3">
+                  <h4>Popular Cities</h4>
+                  <ul class="two-columns">
+                    <li><a href="#">Bangalore</a></li>
+                    <li><a href="#">Mysore</a></li>
+                    <li><a href="#">Chennai</a></li>
+                    <li><a href="#">Hyderabad</a></li>
+                    <li><a href="#">New Delhi</a></li>
+                    <li><a href="#">Noida</a></li>
+                    <li><a href="#">Punjab</a></li>
+                    <li><a href="#">Rajastan</a></li>
+                    <li><a href="#">Kochi</a></li>
+                    <li><a href="#">Vizag</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-12 col-md-3">
+                  <h4>Popular Hotels</h4>
+                  <ul class="two-columns">
+                    <li><a href="#">Budget Hotels</a></li>
+                    <li><a href="#">Eco Hotels</a></li>
+                    <li><a href="#">3STAR Hotels</a></li>
+                    <li><a href="#">5STAR Hotels</a></li>
+                    <li><a href="#">7STAR Hotels</a></li>
+                    <li><a href="#">Single Rooms</a></li>
+                    <li><a href="#">BeachSide Hotels</a></li>
+                    <li><a href="#">XYZ Hotels</a></li>
+                  </ul>
+                </div>
+                <div class="col-sm-12 col-md-3">
+                  <h4>Address</h4>
+                  <p>Line#1 Goes here, Line#2 Goes here, AECS-A Layout, Singasandra, Bangalore, Karnataka - 560068</p>
+                  <p> <span class="foot-phone">Phone: </span> <span class="foot-phone">+91 91489 76626</span> </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="foot-sec2">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-12 col-md-3">
+                  <h4>Payment Options</h4>
+                  <p class="hasimg"> <img src="images/payment.png" alt="payment"> </p>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                  <h4>Subscribe Now</h4>
+                  <form>
+                    <ul class="foot-subsc">
+                      <li>
+                        <input type="text" placeholder="Enter your email id">
+                      </li>
+                      <li>
+                        <input type="submit" value="submit">
+                      </li>
+                    </ul>
+                  </form>
+                </div>
+                <div class="col-sm-12 col-md-5 foot-social">
+                  <h4>Follow with us</h4>
+                  <p>Join the thousands of other There are many variations of passages of Lorem Ipsum available</p>
+                  <ul>
+                    <li><a href="#!"><i class="fa fa-facebook" aria-hidden="true"></i></a> </li>
+                    <li><a href="#!"><i class="fa fa-google-plus" aria-hidden="true"></i></a> </li>
+                    <li><a href="#!"><i class="fa fa-twitter" aria-hidden="true"></i></a> </li>
+                    <li><a href="#!"><i class="fa fa-linkedin" aria-hidden="true"></i></a> </li>
+                    <li><a href="#!"><i class="fa fa-youtube" aria-hidden="true"></i></a> </li>
+                    <li><a href="#!"><i class="fa fa-whatsapp" aria-hidden="true"></i></a> </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</footer>
+<section class="copy">
+  <div class="container">
+    <p>Designed by Rakkath Enterprises - All rights reserved. </p>
+  </div>
+</section>
+<section>
+
+  <div id="modal1" class="modal fade" role="dialog">
+    <div class="log-in-pop">
+      <div class="log-in-pop-left">
+        <h1>Hello... <span>{{ name }}</span></h1>
+        <p>Don't have an account? Create your account. It's take less then a minutes</p>
+        <h4>Login with social media</h4>
+        <ul>
+          <li><a href="#"><i class="fa fa-facebook"></i> Facebook</a>
+          </li>
+          <li><a href="#"><i class="fa fa-google"></i> Google+</a>
+          </li>
+          <li><a href="#"><i class="fa fa-twitter"></i> Twitter</a>
+          </li>
+        </ul>
+      </div>
+      <div class="log-in-pop-right">
+        <a href="#" class="pop-close" data-dismiss="modal"><img src="images/cancel.png" alt="" />
+        </a>
+        <h4>Login</h4>
+        <p>Don't have an account? Create your account. It's take less then a minutes</p>
+        <form class="s12">
+          <div>
+            <div class="input-field s12">
+              <input type="text" data-ng-model="name" class="validate">
+              <label>User name</label>
+            </div>
+          </div>
+          <div>
+            <div class="input-field s12">
+              <input type="password" class="validate">
+              <label>Password</label>
+            </div>
+          </div>
+          <div>
+            <div class="s12 log-ch-bx">
+              <p>
+                <input type="checkbox" id="test5" />
+                <label for="test5">Remember me</label>
+              </p>
+            </div>
+          </div>
+          <div>
+            <div class="input-field s4">
+              <input type="submit" value="Login" class="waves-effect waves-light log-in-btn">
+            </div>
+          </div>
+          <div>
+            <div class="input-field s12"> <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modal3">Forgot
+                password</a> | <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modal2">Create a new
+                account</a> </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal2" class="modal fade" role="dialog">
+    <div class="log-in-pop">
+      <div class="log-in-pop-left">
+        <h3>Hello Ujjual</h3>
+        <p>Please read the following steps to create and use the User accounts under your user role.</p>
+        <ul>
+          <li>Point#1 text goes here...</li>
+          <li>Point#2 text goes here...</li>
+          <li>Point#3 text goes here...</li>
+          <li>Point#4 text goes here...</li>
+          <li>Point#5 text goes here...</li>
+          <li>Point#6 text goes here...</li>
+        </ul>
+      </div>
+      <div class="log-in-pop-right">
+        <a href="#" class="pop-close" data-dismiss="modal"><img src="images/cancel.png" alt="" />
+        </a>
+        <h4>Create a User</h4>
+        <p>You can create either Franchise, User and also Staff member based on your user type.</p>
+        <form class="s12">
+          <div>
+            <div class="input-field s12">
+              <input type="text" data-ng-model="name1" class="validate">
+              <label>User name</label>
+            </div>
+          </div>
+          <div>
+            <div class="input-field s12">
+              <input type="email" class="validate">
+              <label>Email id</label>
+            </div>
+          </div>
+          <div>
+            <div class="input-field s12">
+              <input type="text" class="validate">
+              <label>User Role</label>
+            </div>
+          </div>
+          <div>
+            <div class="input-field s4">
+              <input type="submit" value="Register" class="waves-effect waves-light log-in-btn">
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal3" class="modal fade" role="dialog">
+    <div class="log-in-pop">
+      <div class="log-in-pop-left">
+        <h1>Hello... <span>{{ name3 }}</span></h1>
+        <p>Don't have an account? Create your account. It's take less then a minutes</p>
+        <h4>Login with social media</h4>
+        <ul>
+          <li><a href="#"><i class="fa fa-facebook"></i> Facebook</a>
+          </li>
+          <li><a href="#"><i class="fa fa-google"></i> Google+</a>
+          </li>
+          <li><a href="#"><i class="fa fa-twitter"></i> Twitter</a>
+          </li>
+        </ul>
+      </div>
+      <div class="log-in-pop-right">
+        <a href="#" class="pop-close" data-dismiss="modal"><img src="images/cancel.png" alt="" />
+        </a>
+        <h4>Forgot password</h4>
+        <p>Don't have an account? Create your account. It's take less then a minutes</p>
+        <form class="s12">
+          <div>
+            <div class="input-field s12">
+              <input type="text" data-ng-model="name3" class="validate">
+              <label>User name or email id</label>
+            </div>
+          </div>
+          <div>
+            <div class="input-field s4">
+              <input type="submit" value="Submit" class="waves-effect waves-light log-in-btn">
+            </div>
+          </div>
+          <div>
+            <div class="input-field s12"> <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modal1">Are
+                you a already member ? Login</a> | <a href="#" data-dismiss="modal" data-toggle="modal" data-target="#modal2">Create
+                a new account</a> </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section> -->

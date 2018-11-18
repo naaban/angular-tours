@@ -1,0 +1,29 @@
+@import '../theme';
+// @import '../functions';
+  .example-full-width {
+    width: 100%;
+}
+  .inventory-body{
+    min-width: 100%;
+    // background-image: image("assets/img/img.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    overflow-y:scroll;
+    background-size: cover;
+}
+
+button{
+  color: white;
+}
+::-webkit-scrollbar { 
+  display: none; 
+}
+.disableSelection { /* To make it work for all major browsers- Disable copy the contents*/
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera in my laptop and srikanth laptop also*/
+  }

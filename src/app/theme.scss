@@ -1,0 +1,36 @@
+@import '~@angular/material/theming';
+
+$general-typography: mat-typography-config(
+  $font-family: '"Ubuntu", "Ubuntu", Ubuntu',
+  $body-2:        mat-typography-level(14px, 24px, 600)  
+);
+
+@include mat-core($general-typography);
+
+$primary: mat-palette($mat-grey,900);
+$accent: mat-palette($mat-pink, A200, A100, A400);
+$warn: mat-palette($mat-red);
+$theme: mat-light-theme($primary, $accent, $warn);
+
+@include angular-material-theme($theme);
+
+
+// Our dark theme
+.dark-theme {
+  color: $light-primary-text;
+  $dark-primary: mat-palette($mat-yellow);
+  $dark-accent: mat-palette($mat-amber, A400, A100, A700);
+  $dark-warn: mat-palette($mat-red);
+  $dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+  @include angular-material-theme($dark-theme);
+}
+.red-theme {
+  // color: $light-primary-text;
+  $dark-primary: mat-palette($mat-green);
+  $dark-accent: mat-palette($mat-red, A400, A100, A700);
+  $dark-warn: mat-palette($mat-red);
+  $dark-theme: mat-light-theme($dark-primary, $dark-accent, $dark-warn);
+  @include angular-material-theme($dark-theme);
+
+}
+

@@ -1,0 +1,80 @@
+<div [ngClass]="{'dark-theme' : isDarkTheme | async}">
+  <div [ngClass]="{'red-theme' : isRedTheme | async}">
+    <!-- <div style="height: 60vh;"> -->
+      <mat-toolbar color="primary">
+        <mat-toolbar-row color="primary">
+          <span>Tours</span>
+          <span class="example-spacer"></span>
+
+          <div fxShow="true" fxHide.lt-md="true">
+            <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+            <button mat-flat-button color="primary" type="button" class="example-icon" routerLink="/create-package">Create
+              Package</button>
+            <button mat-flat-button color="primary" type="button" class="example-icon">
+              <mat-slide-toggle color="primary" class="example-icon" [checked]="isDarkTheme | async" (change)="toggleDarkTheme($event.checked)">Dark
+                Theme</mat-slide-toggle>
+            </button>
+            <!-- <button mat-flat-button color="primary" type="button" class="example-icon">
+              <mat-slide-toggle color="primary" class="example-icon" [checked]="isRedTheme | async" (change)="toggleRedTheme($event.checked)">Dark
+                Theme</mat-slide-toggle>
+            </button> -->
+          </div>
+          <!-- <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+          <mat-menu  #menu="matMenu">
+            <mat-grid-list  cols="2" >
+              <mat-grid-tile>
+                <mat-button-toggle value="left">
+                  <button mat-flat-button color="accent"></button>
+                </mat-button-toggle>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <mat-button-toggle  value="center">
+                    <button mat-flat-button color="accent"></button>
+                </mat-button-toggle>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <mat-button-toggle value="right">
+                    <button mat-flat-button color="accent"></button>
+                </mat-button-toggle>
+              </mat-grid-tile>
+              <mat-grid-tile>
+                <mat-button-toggle value="justify">
+                    <button mat-flat-button color="accent"></button>
+                </mat-button-toggle>
+              </mat-grid-tile>
+            </mat-grid-list>
+            <mat-chip-list></mat-chip-list>
+            <mat-button-toggle-group #group="matButtonToggleGroup">
+            </mat-button-toggle-group>
+          </mat-menu> -->
+          <div fxShow="true" fxHide.gt-sm="true">
+
+            <button mat-icon-button>
+              <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+            </button>
+          </div>
+        </mat-toolbar-row>
+      </mat-toolbar>
+      <mat-sidenav-container fxFlexFill class="example-container">
+
+        <mat-sidenav #sidenav fxLayout="column">
+          <div fxLayout="column">
+            <br>
+            <button mat-flat-button type="button" (click)="sidenav.toggle()" class="example-icon" routerLink="/create-package">Create
+              Package</button>
+            <br>
+            <button mat-flat-button class="example-icon">
+              <mat-slide-toggle class="example-icon" [checked]="isDarkTheme | async" (change)="toggleDarkTheme($event.checked)">Dark
+                Theme</mat-slide-toggle>
+            </button>
+          </div>
+        </mat-sidenav>
+        
+        <mat-sidenav-content fxFlexFill>
+          <router-outlet></router-outlet>
+        </mat-sidenav-content>
+      </mat-sidenav-container>
+      
+    </div>
+  <!-- </div> -->
+</div>

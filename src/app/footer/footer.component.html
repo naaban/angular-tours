@@ -1,0 +1,44 @@
+<div [ngClass]="{'dark-theme' : isDarkTheme | async}">
+  <div [ngClass]="{'red-theme' : isRedTheme | async}">
+    <mat-card color="primary">
+      <div class="sidebar-container">
+        <div class="sidebar-inner">
+          <div class="widget-area clearfix">
+            <div class="widget widget_azh_widget">
+              <div>
+                <div class="container">
+                  <div class="row">
+                    <div class="col-sm-12 col-md-4 foot-logo">
+                      <img src="assets/img/logo1.png" alt="logo">
+                      <p class="hasimg">Hotels worldwide incl. Infos, Ratings and Photos. Make your Hotel Reservation
+                        cheap.</p>
+                      <p class="hasimg">The top-rated hotel booking services.The top-rated hotel booking services.</p>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                      <h4>Payment Options</h4>
+                      <p class="hasimg"> <img src="assets/img/payment.png" alt="payment"> </p>
+                    </div>
+                    <div class="col-sm-12 col-md-4">
+                      <h4>Subscribe Now</h4>
+                      <form [formGroup]="params"  (submit)="onSubmit()">
+                        <div class="row container">
+                          <mat-form-field class="example-full-width">
+                            <input matInput placeholder="Fullname" formControlName="submit">
+                          </mat-form-field> <br>
+                          <button mat-button color="accent"> Submit</button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- .widget-area -->
+        </div>
+        <!-- .sidebar-inner -->
+      </div>
+      <!-- #quaternary -->
+    </mat-card>
+  </div>
+</div>
